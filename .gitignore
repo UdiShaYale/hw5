@@ -1,0 +1,71 @@
+# ---------------------------------------------------------------------------
+# Secrets
+# ---------------------------------------------------------------------------
+# The real key lives in a .env. Never commit one; .env.example is the template.
+.env
+.env.*
+!.env.example
+
+# ---------------------------------------------------------------------------
+# Python
+# ---------------------------------------------------------------------------
+# 186 MB and platform-specific — requirements.txt rebuilds it.
+.venv/
+backend/.venv/
+venv/
+.reqtest/
+
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# ---------------------------------------------------------------------------
+# Node / the dashboard
+# ---------------------------------------------------------------------------
+# 102 MB — package-lock.json rebuilds it. (frontend/.gitignore also covers
+# these; repeated here so the rules hold from the repo root too.)
+node_modules/
+frontend/node_modules/
+frontend/dist/
+.vite/
+*.local
+*.log
+npm-debug.log*
+
+# Playwright, used only to capture output/shots/*.png
+test-results/
+playwright-report/
+.playwright/
+
+# ---------------------------------------------------------------------------
+# Scratch
+# ---------------------------------------------------------------------------
+output/*.tmp
+output/audit_trail.corrupt-*.json
+*.tmp
+
+# ---------------------------------------------------------------------------
+# OS / editor
+# ---------------------------------------------------------------------------
+# desktop.ini matters here: this project lives in a OneDrive-synced folder.
+desktop.ini
+Thumbs.db
+.DS_Store
+.idea/
+.vscode/*
+!.vscode/extensions.json
+
+# ---------------------------------------------------------------------------
+# Deliberately NOT ignored — these are the assignment
+# ---------------------------------------------------------------------------
+#   data/campus_customs.db      the pristine reference copy
+#   data/campus_customs_new.db  the working copy the agents wrote to
+#   output/harness.md           tables, tools, agents, routes, dashboard, safety
+#   output/desk_tickets.html    expected vs actual, cash, reflection
+#   output/resolved_board.html  + output/shots/*.png  (the page needs the images)
+#   output/resolved_tickets.json, mcp_smoke.json, board_runs.json, design.md
+#   output/audit_trail.json     the append-only agent-loop record
+#   requirements.txt, frontend/package-lock.json

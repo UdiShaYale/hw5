@@ -1,0 +1,31 @@
+# Campus Customs — Python dependencies
+#
+#   python -m venv backend/.venv
+#   backend/.venv/Scripts/python.exe -m pip install -r requirements.txt   # Windows
+#   backend/.venv/bin/python -m pip install -r requirements.txt           # macOS / Linux
+#
+# Built and verified on Python 3.13.15.
+# Direct dependencies only — pip resolves the rest (httpx, starlette, anyio, …).
+
+# --- the agent team ---------------------------------------------------------
+# pydantic-ai-slim rather than full pydantic-ai: we only need the OpenAI
+# provider (Portkey speaks the OpenAI API) and the MCP client extra.
+# gpt-6-luna needs the Responses API for function tools, which the openai
+# extra provides via OpenAIResponsesModel.
+pydantic-ai-slim[openai,mcp]==2.55.0
+
+# --- the MCP server ---------------------------------------------------------
+# Also used client-side: pydantic-ai's MCPToolset is built on the FastMCP
+# client, and backend/mcp_bridge.py uses it directly for the FastAPI routes.
+fastmcp==4.1.0
+
+# --- the FastAPI backend ----------------------------------------------------
+fastapi==0.143.0
+uvicorn[standard]==0.54.0
+
+# --- config -----------------------------------------------------------------
+# Reads PORTKEY_API_KEY from the .env at the repo root.
+python-dotenv==1.2.4
+
+# The dashboard's own dependencies are in frontend/package.json (npm install).
+# Playwright, used only to capture output/shots/*.png, is a frontend devDependency.

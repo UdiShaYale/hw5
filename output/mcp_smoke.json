@@ -1,0 +1,63 @@
+{
+  "server_name": "campus-customs",
+  "config_file": ".mcp.json (workspace root)",
+  "database": "hw 5/data/campus_customs_new.db",
+  "run_at": "2026-10-10T19:53:11-04:00",
+  "transport": "stdio",
+  "how_these_calls_were_made": "Called over the MCP stdio protocol by a FastMCP Client against mcp_server/mcp_server.py. The .mcp.json entry was added during this session, and Claude Code loads MCP servers only at startup, so the server was not yet callable as mcp__campus-customs__* from the vibecoder itself. The prompts below are the ones driving each call; the tool outputs are the real, unedited responses from the server.",
+  "tools_advertised_by_server": [
+    "check_inventory_stock",
+    "get_lease_terms",
+    "get_sku_pricing"
+  ],
+  "tests": [
+    {
+      "ticket": 101,
+      "prompt": "Ticket 101: Tauhid Zaman wants a Classic Bulldog Tee, SKU CC-TEE-WHITE, size S. Use the campus-customs MCP server to check whether we have it in stock.",
+      "tool": "check_inventory_stock",
+      "arguments": {
+        "sku": "CC-TEE-WHITE",
+        "size": "S"
+      },
+      "tool_output": {
+        "found": true,
+        "sku": "CC-TEE-WHITE",
+        "name": "Classic Bulldog Tee",
+        "size": "S",
+        "qty": 0,
+        "location": "Aisle B"
+      }
+    },
+    {
+      "ticket": 102,
+      "prompt": "Ticket 102: Elm City Properties emailed that shop rent is due in 2 days. Use the campus-customs MCP server to pull the actual lease terms for lease 1 so we can verify the amount and the due date.",
+      "tool": "get_lease_terms",
+      "arguments": {
+        "lease_id": 1
+      },
+      "tool_output": {
+        "found": true,
+        "id": 1,
+        "space_name": "Chapel Street shop",
+        "landlord": "Elm City Properties",
+        "monthly_rent": 2400.0,
+        "next_due": "2026-09-02",
+        "notes": null
+      }
+    },
+    {
+      "ticket": 103,
+      "prompt": "Ticket 103: the Yale AI Club wants 20 navy hoodies (CC-HOOD-NAVY) in size M at a bulk discount. Use the campus-customs MCP server to get the recorded cost and list price for that SKU so we know our margin floor.",
+      "tool": "get_sku_pricing",
+      "arguments": {
+        "sku": "CC-HOOD-NAVY"
+      },
+      "tool_output": {
+        "found": true,
+        "sku": "CC-HOOD-NAVY",
+        "unit_cost": 22.0,
+        "list_price": 58.0
+      }
+    }
+  ]
+}

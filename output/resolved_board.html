@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Campus Customs — Resolved Board</title>
+<style>
+  :root {
+    --navy:#0b2545; --blue-700:#1d4ed8; --blue-600:#2563eb; --blue-300:#93c5fd;
+    --blue-100:#dbeafe; --blue-50:#eff6ff; --ink:#0f1e34; --muted:#5b6b85;
+    --line:#d7e4f7; --paper:#fff;
+  }
+  * { box-sizing:border-box; }
+  body { margin:0; padding:0 0 4rem; background:#f4f8fd; color:var(--ink);
+    font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; }
+  header.top { background:linear-gradient(118deg,#061427,var(--navy) 45%,var(--blue-700));
+    color:#fff; padding:2.2rem 1.5rem 1.6rem; }
+  .wrap { max-width:1320px; margin:0 auto; padding:0 1.5rem; }
+  header.top .wrap { padding:0; }
+  header.top h1 { margin:0; font-size:1.7rem; letter-spacing:-.015em; }
+  header.top p { margin:.45rem 0 0; color:var(--blue-100); max-width:74ch; font-size:.95rem; }
+  .chips { margin-top:1.1rem; display:flex; gap:.5rem; flex-wrap:wrap; }
+  .chip { background:rgba(255,255,255,.13); border:1px solid rgba(255,255,255,.22);
+    border-radius:999px; padding:.22rem .75rem; font-size:.8rem;
+    font-variant-numeric:tabular-nums; }
+  main { max-width:1320px; margin:2rem auto 0; padding:0 1.5rem;
+    display:flex; flex-direction:column; gap:2rem; }
+  .shot-card { background:var(--paper); border:1px solid var(--line); border-radius:16px;
+    box-shadow:0 2px 4px rgba(11,37,69,.06),0 14px 36px rgba(11,37,69,.09); overflow:hidden; }
+  .shot-head { display:flex; gap:1rem; align-items:flex-start;
+    padding:1.2rem 1.5rem .9rem; border-bottom:1px solid var(--line); }
+  .shot-head h2 { margin:0 0 .2rem; font-size:1.2rem; }
+  .shot-sub { margin:0; color:var(--muted); font-size:.88rem; max-width:80ch; }
+  .status { margin-left:auto; flex:none; border-radius:999px; padding:.22rem .8rem;
+    font-size:.72rem; font-weight:800; text-transform:uppercase; letter-spacing:.05em; }
+  .status.resolved { background:#ecfdf5; color:#047857; border:1px solid #6ee7b7; }
+  .status.in_progress { background:var(--blue-50); color:var(--blue-700); border:1px solid var(--blue-300); }
+  .shot-stats { display:flex; gap:1.4rem; flex-wrap:wrap; padding:.7rem 1.5rem;
+    background:#fbfdff; border-bottom:1px solid var(--line);
+    font-size:.8rem; color:var(--muted); font-variant-numeric:tabular-nums; }
+  .shot-stats strong { color:var(--ink); font-size:.95rem; }
+  .shot-stats .money strong { color:#b45309; }
+  .mono { font-family:ui-monospace,SFMono-Regular,Consolas,monospace; font-size:.76rem;
+    color:#8aa0bd; margin-left:auto; }
+  .shot-card img { display:block; width:100%; height:auto; }
+  .shot-card a { display:block; line-height:0; }
+  .note { max-width:1320px; margin:2.5rem auto 0; padding:0 1.5rem;
+    color:var(--muted); font-size:.86rem; }
+  .note code { background:var(--blue-50); border:1px solid var(--blue-100);
+    border-radius:5px; padding:.05rem .35rem; font-size:.85em; }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <h1>Campus Customs — Resolved Board</h1>
+    <p>The React dashboard after the agent team worked all three tickets on 2026-08-31.
+       Each screenshot is the live app, showing that ticket's real transcript replayed from
+       the audit trail. Click any image to open it full size.</p>
+    <div class="chips">
+      <span class="chip">Shop date 2026-08-31</span>
+      <span class="chip">Opened $3,400.00</span>
+      <span class="chip">Closed $160.00</span>
+      <span class="chip">2 human-approved payments</span>
+      <span class="chip">2 resolved · 1 in progress</span>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="shot-card">
+    <header class="shot-head">
+      <div>
+        <h2>Ticket 101</h2>
+        <p class="shot-sub">Invoice 501 paid, the tee still not in hand. The transcript shows Inventory called first, and the status stays <code>in_progress</code> because the reprint has not arrived.</p>
+      </div>
+      <span class="status in_progress">in progress</span>
+    </header>
+    <div class="shot-stats">
+      <span><strong>3</strong> runs</span>
+      <span><strong>15</strong> delegations</span>
+      <span><strong>104</strong> MCP calls</span>
+      <span><strong>4</strong> agents</span>
+      <span class="money">
+        <strong>$840.00</strong>
+        cash out</span>
+      <span class="mono">run-8fc88d7f</span>
+    </div>
+    <a href="shots/ticket-101.png" target="_blank" rel="noopener">
+      <img src="shots/ticket-101.png" alt="Campus Customs dashboard showing ticket 101">
+    </a>
+  </section>
+  <section class="shot-card">
+    <header class="shot-head">
+      <div>
+        <h2>Ticket 102</h2>
+        <p class="shot-sub">The rent notice verified against lease 1 and paid. Facilities went first, then handed affordability to Accounting. Closed <code>resolved</code>.</p>
+      </div>
+      <span class="status resolved">resolved</span>
+    </header>
+    <div class="shot-stats">
+      <span><strong>2</strong> runs</span>
+      <span><strong>11</strong> delegations</span>
+      <span><strong>67</strong> MCP calls</span>
+      <span><strong>4</strong> agents</span>
+      <span class="money">
+        <strong>$2,400.00</strong>
+        cash out</span>
+      <span class="mono">run-8d2f9e9f</span>
+    </div>
+    <a href="shots/ticket-102.png" target="_blank" rel="noopener">
+      <img src="shots/ticket-102.png" alt="Campus Customs dashboard showing ticket 102">
+    </a>
+  </section>
+  <section class="shot-card">
+    <header class="shot-head">
+      <div>
+        <h2>Ticket 103</h2>
+        <p class="shot-sub">Eight hoodies against an order for twenty. No discount approved, no money spent, and the club told what the shop can actually supply. Closed <code>resolved</code>.</p>
+      </div>
+      <span class="status resolved">resolved</span>
+    </header>
+    <div class="shot-stats">
+      <span><strong>2</strong> runs</span>
+      <span><strong>11</strong> delegations</span>
+      <span><strong>61</strong> MCP calls</span>
+      <span><strong>4</strong> agents</span>
+      <span class="">
+        <strong>no</strong>
+        cash movement</span>
+      <span class="mono">run-b0d1f48f</span>
+    </div>
+    <a href="shots/ticket-103.png" target="_blank" rel="noopener">
+      <img src="shots/ticket-103.png" alt="Campus Customs dashboard showing ticket 103">
+    </a>
+  </section>
+</main>
+
+<p class="note">
+  Screenshots captured from <code>http://localhost:5173</code> against the live backend.
+  Images live in <code>output/shots/</code> — keep that folder next to this file.
+  Full per-ticket detail is in <code>resolved_tickets.json</code>; the expected-versus-actual
+  comparison is in <code>desk_tickets.html</code>.
+</p>
+
+</body>
+</html>
